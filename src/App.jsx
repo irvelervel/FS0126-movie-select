@@ -43,6 +43,7 @@ class App extends Component {
               {/* qui dentro monteremo MovieCard */}
               {/* MovieCard riceverà dal componente App tramite prop il titolo selezionato nella tendina */}
               <MovieCard title={this.state.title} />
+              {/* la prop title inizialmente è "Iron Man", poi diventa "The Avengers" etc. */}
             </Col>
           </Row>
         </Container>
