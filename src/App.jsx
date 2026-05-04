@@ -1,13 +1,20 @@
-import { Col, Container, Form, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Component } from 'react'
 import MovieCard from './components/MovieCard'
+import MovieSelect from './components/MovieSelect'
 
 class App extends Component {
   state = {
     // intendo con questo stato controllare l'input per la scelta del film
     title: 'Iron Man',
+  }
+
+  changeAppState = (e) => {
+    this.setState({
+      title: e.target.value,
+    })
   }
 
   render() {
@@ -21,21 +28,12 @@ class App extends Component {
           </Row>
           <Row className="justify-content-center">
             <Col xs={12} md={6}>
-              <Form.Select
-                aria-label="Default select example"
+              <MovieSelect
+                // movieSelect riceve il value da App
                 value={this.state.title}
-                onChange={(e) => {
-                  this.setState({
-                    title: e.target.value,
-                  })
-                }}
-              >
-                <option>Iron Man</option>
-                <option>The Avengers</option>
-                <option>Black Widow</option>
-                <option>Doctor Strange</option>
-                <option>Spider Man No Way Home</option>
-              </Form.Select>
+                // movieSelect riceve l'onChange da App
+                onChange={this.changeAppState}
+              />
             </Col>
           </Row>
           <Row className="justify-content-center mt-3">
